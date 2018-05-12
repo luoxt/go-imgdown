@@ -7,7 +7,7 @@ import (
 	"path"
 	"strings"
 	"golang.org/x/net/html"
-	"go-imgdown/library/errs"
+	"go-imgdown/library/base"
 )
 
 var urlArr []string
@@ -63,7 +63,7 @@ func pageLink(urlstr string, id int) {
 
 	
 	stmt, err := db.Prepare("UPDATE list_url set status = 1 where id = ?")
-	errs.CheckErr(err)
+	base.CheckErr(err)
 
 	stmt.Exec(id)
 	db.Close()
@@ -120,13 +120,13 @@ func insert(url string, url_type string) {
 	if id<=0 {
 		//插入数据
 		stmt, err := db.Prepare("INSERT INTO page_url(page_url, pid) values(?, ?)")
-		errs.CheckErr(err)
+		base.CheckErr(err)
 
 		res, err := stmt.Exec(url, 18)
-		errs.CheckErr(err)
+		base.CheckErr(err)
 
 		insert_id, err := res.LastInsertId()
-		errs.CheckErr(err)
+		base.CheckErr(err)
 
 		fmt.Println("【成功插入】ID：", insert_id)
 

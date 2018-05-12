@@ -8,7 +8,7 @@ import (
 	"path"
 	"strings"
 	"golang.org/x/net/html"
-	"go-imgdown/library/errs"
+	"go-imgdown/library/base"
 )
 
 const (
@@ -217,14 +217,14 @@ func ImgInsert(url string, pid int)(table_id int64) {
 	if id<=0 {
 		//插入数据
 		stmt, err := db.Prepare("ImgInsert INTO img_url(page_url,pid) values(?,?)")
-		errs.CheckErr(err)
+		base.CheckErr(err)
 
 		res, err := stmt.Exec(url, pid)
-		errs.CheckErr(err)
+		base.CheckErr(err)
 		stmt.Close()
 
 		ImgInsert_id, err := res.LastInsertId()
-		errs.CheckErr(err)
+		base.CheckErr(err)
 
 		fmt.Println("【记录成功插入】ID：", ImgInsert_id)
 

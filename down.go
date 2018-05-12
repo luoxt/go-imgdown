@@ -3,11 +3,13 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"io"
 	"os"
 	"go-imgdown/library/cmd"
-	// "path/filepath"
+	"io/ioutil"
+	"runtime"
 )
+
+var ostype = runtime.GOOS
 
 func init()  {
 
@@ -32,8 +34,6 @@ func main() {
 
 	cmd.Command(commandstr)
 
-	return
-
 }
 
 //获取命令参数
@@ -53,25 +53,40 @@ func command() string  {
 	}
 }
 
-
+//获取配置文件
 func getConfig()  {
-	configPath := "config\\down.ini"
-	dir, _ := os.Getwd()
-	allConfigPath := dir+"\\"+configPath
-fmt.Println(allConfigPath)
-	inputFile, err := os.Open(allConfigPath)
-	if err != nil {
-		fmt.Printf("请确认配置文件是否正确？")
-		return
-	}
-	defer inputFile.Close()
+	configFile := "config.ini"
 
-	inputReader := bufio.NewReader(inputFile)
-	for {
-		inputString, err := inputReader.ReadString('\n')
-		fmt.Printf("The input was: %s", inputString)
-		if err == io.EOF {
-			return
-		}
+	dir, _ := os.Getwd()
+	path := "/"
+	if ostype == "windows"{
+		path = "\\"
 	}
+
+	allConfigPath := dir + path + "src" + path + "go-imgdown" + path + "conf" + path + configFile
+	fmt.Println(allConfigPath)
+
+	configbye, err := ioutil.ReadFile(allConfigPath)
+	if err != nil {
+		fmt.Print(err)
+	}
+
+	str := string(configbye)
+	fmt.Println(str)
+	//
+	//inputFile, err := os.Open(allConfigPath)
+	//if err != nil {
+	//	fmt.Printf("请确认配置文件是否正确？")
+	//	return
+	//}
+	//defer inputFile.Close()
+	//
+	//inputReader := bufio.NewReader(inputFile)
+	//for {
+	//	inputString, err := inputReader.ReadString('\n')
+	//	fmt.Printf("The input was: %s", inputString)
+	//	if err == io.EOF {
+	//		return
+	//	}
+	//}
 }

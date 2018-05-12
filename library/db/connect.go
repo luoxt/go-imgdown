@@ -6,7 +6,6 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-
 const(
 	HOST = "127.0.0.1"
 	DBNAME = "link"

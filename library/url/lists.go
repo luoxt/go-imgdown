@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"database/sql"
 	mysql "go-imgdown/library/db"
-	"go-imgdown/library/errs"
+	"go-imgdown/library/base"
 )
 
 var db *sql.DB
@@ -26,13 +26,13 @@ func Lists(url_list []string) {
 			if id<=0 {
 				//插入数据
 				stmt, err := db.Prepare("INSERT INTO list_url(page_url, pid) values(?, ?)")
-				errs.CheckErr(err)
+				base.CheckErr(err)
 
 				res, err := stmt.Exec(url, 18)
-				errs.CheckErr(err)
+				base.CheckErr(err)
 
 				insert_id, err := res.LastInsertId()
-				errs.CheckErr(err)
+				base.CheckErr(err)
 
 				fmt.Println("【成功插入】ID：", insert_id)
 

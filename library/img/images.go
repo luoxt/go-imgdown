@@ -10,7 +10,7 @@ import (
 	"strings"
 	"golang.org/x/net/html"
 	mysql "go-imgdown/library/db"
-	"go-imgdown/library/errs"
+	"go-imgdown/library/base"
 )
 
 type Link struct {
@@ -172,13 +172,13 @@ func Insert(url string, pid int)(table_id int64) {
 	if id<=0 {
 		//插入数据
 		stmt, err := db.Prepare("Insert INTO img_url(page_url,pid) values(?,?)")
-		errs.CheckErr(err)
+		base.CheckErr(err)
 
 		res, err := stmt.Exec(url, pid)
-		errs.CheckErr(err)
+		base.CheckErr(err)
 
 		Insert_id, err := res.LastInsertId()
-		errs.CheckErr(err)
+		base.CheckErr(err)
 
 		fmt.Println("【记录成功插入】ID：", Insert_id)
 
