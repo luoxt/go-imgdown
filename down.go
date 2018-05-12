@@ -7,6 +7,7 @@ import (
 	"go-imgdown/library/cmd"
 	"io/ioutil"
 	"runtime"
+	"encoding/json"
 )
 
 var ostype = runtime.GOOS
@@ -53,6 +54,20 @@ func command() string  {
 	}
 }
 
+type database struct {
+	host string
+	dbname string
+	user string
+	pass string
+	port string
+}
+
+type Config struct {
+	datebase database
+	path  string
+	gocount int
+}
+
 //获取配置文件
 func getConfig()  {
 	configFile := "config.ini"
@@ -71,8 +86,11 @@ func getConfig()  {
 		fmt.Print(err)
 	}
 
-	str := string(configbye)
-	fmt.Println(str)
+	v := new(Config)
+	json.Unmarshal(configbye, &v)
+	fmt.Println(v.gocount)
+	//str := string(configbye)
+	//fmt.Println(str)
 	//
 	//inputFile, err := os.Open(allConfigPath)
 	//if err != nil {
