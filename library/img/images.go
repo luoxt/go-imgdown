@@ -42,13 +42,13 @@ func Images() {
 		L.num = 0
 		L.domain = paths[2]
 		L.url = urlVal
+fmt.Println(L)
+		// GetImgUrl(urlVal, id)
 
-		GetImgUrl(urlVal, id)
-
-		//更新数据
-		stmt, _ := db.Prepare("UPDATE page_url set status = 1 where id = ?")
-		stmt.Exec(id)
-		defer db.Close()
+		// //更新数据
+		// stmt, _ := db.Prepare("UPDATE page_url set status = 1 where id = ?")
+		// stmt.Exec(id)
+		// defer db.Close()
 	}
 
 	i := 0
