@@ -5,17 +5,13 @@ import (
 	"fmt"
 	"os"
 	"go-imgdown/library/cmd"
-	"go-imgdown/library/img"
+	// "go-imgdown/library/img"
 )
 
-func init()  {
-
-	//加载配置文件
-}
 
 func main() {
-	//command()
-	img.Images()
+	command()
+	//img.Images()
 }
 
 //获取命令参数

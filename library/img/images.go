@@ -28,10 +28,19 @@ func init()  {
 }
 
 func Images() {
-	
+
 	//获取数据库数据
+	var count int
+	resCount:= db.QueryRow("select count(*) as count from page_url where status = 0")
+	resCount.Scan(&count)
+	if count==0 {
+		fmt.Println("没有数据")
+		return
+	}
+
 	rows, _:= db.Query("select id, page_url from page_url where status = 0")
 	for rows.Next(){
+		fmt.Println("结构")
 		var id int
 		var page_url string
 		rows.Scan(&id, &page_url)
