@@ -52,54 +52,70 @@ func command()  {
 
 //获取配置文件
 func getConfig()  {
-	configFile := "config.ini"
-
 	dir, _ := os.Getwd()
+
+	//配置路径
+	configFile := "config.ini"
 	path := "/"
 	if ostype == "windows"{
 		path = "\\"
 	}
+	//configPath := dir + path + "conf" + path + configFile
+	configPath := dir + path + "src" + path + "go-imgdown" +  path + "conf" + path + configFile
 
-	allConfigPath := dir + path + "conf" + path + configFile
-	fmt.Println(allConfigPath)
-
-	configbye, err := ioutil.ReadFile(allConfigPath)
+	//配置内容
+	configbye, err := ioutil.ReadFile(configPath)
 	if err != nil {
 		fmt.Print(err)
 	}
-
-	str := string(configbye)
-	fmt.Println(str)
+	configStr := string(configbye)
 
 	//////////////////////////////////////////
 	type database struct {
-		host string
-		dbname string
-		user string
-		pass string
-		port string
+		Host string `json:"host"`
+		Dbname string `json:"dbname"`
+		User string `json:"user"`
+		Pass string `json:"pass"`
+		Port string `json:"port"`
 	}
 	
 	type Config struct {
-		datebases database 
-		path  string
-		gocount int
+		Database *database `json:"database"`
+		Path  string  `json:"path"`
+		Gocount int  `json:"gocount"`
 	}
 
 	///////////////////////////////
-	type Book struct { 
-		Title string 
-		Authors []string 
-		Publisher string 
-		IsPublished bool 
-		Price float32
-	} 
-	
-	b := []byte(`{"Title": "Go语言编程", "Sales": 1000000}`) 
-	var gobook Book
+	var goconfig Config
 
-	err = json.Unmarshal(b, &gobook)
-    fmt.Println(gobook)
+	fmt.Println(configStr)
+	if err := json.Unmarshal([]byte(configStr), &goconfig); err == nil {
+		fmt.Println("================json str 转struct==")
+		fmt.Println(goconfig)
+	}
+
+	////////////////////////////////////
+	//type ConfigStruct struct {
+	//	Host              string   `json:"host"`
+	//	Port              int      `json:"port"`
+	//	AnalyticsFile     string   `json:"analytics_file"`
+	//	StaticFileVersion int      `json:"static_file_version"`
+	//	StaticDir         string   `json:"static_dir"`
+	//	TemplatesDir      string   `json:"templates_dir"`
+	//	SerTcpSocketHost  string   `json:"serTcpSocketHost"`
+	//	SerTcpSocketPort  int      `json:"serTcpSocketPort"`
+	//	Fruits            []string `json:"fruits"`
+	//}
+	//
+	//jsonStr := `{"host": "http://localhost:9090","port": 9090,"analytics_file": "","static_file_version": 1,"static_dir": "E:/Project/goTest/src/","templates_dir": "E:/Project/goTest/src/templates/","serTcpSocketHost": ":12340","serTcpSocketPort": 12340,"fruits": ["apple", "peach"]}`
+	//
+	////json str 转struct
+	//var config ConfigStruct
+	//if err := json.Unmarshal([]byte(jsonStr), &config); err == nil {
+	//	fmt.Println("================json str 转struct==")
+	//	fmt.Println(config)
+	//	fmt.Println(config.Host)
+	//}
 
 	//
 	//inputFile, err := os.Open(allConfigPath)
