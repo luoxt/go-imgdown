@@ -40,14 +40,13 @@ func Command(comstr string)  {
 
 func list()  {
 	//获取用户输入的
-	fmt.Println("请输入根路径:")
-	firstInput := bufio.NewScanner(os.Stdin)
+	// fmt.Println("请输入根路径:")
+	// firstInput := bufio.NewScanner(os.Stdin)
 
-	firstPath := ""
-	if firstInput.Scan() {
-		firstPath = firstInput.Text()
-	}
-	fmt.Println(firstPath)
+	// var firstPath string
+	// if firstInput.Scan() {
+	// 	firstPath = firstInput.Text()
+	// }
 
 	fmt.Println("请输入文件列表和'end'并按回车结束输入：")
 	var pathstr []string

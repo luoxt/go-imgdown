@@ -5,26 +5,13 @@ import (
 	"fmt"
 	"os"
 	"go-imgdown/library/cmd"
-	"io/ioutil"
-	"runtime"
-	"encoding/json"
+	// "go-imgdown/library/img"
 )
 
-var ostype = runtime.GOOS
-
-func init()  {
-
-	//加载配置文件
-	getConfig()
-
-}
 
 func main() {
-
 	command()
-
-	
-
+	//img.Images()
 }
 
 //获取命令参数
@@ -50,6 +37,7 @@ func command()  {
 
 
 
+<<<<<<< HEAD
 //获取配置文件
 func getConfig()  {
 	dir, _ := os.Getwd()
@@ -135,3 +123,6 @@ func getConfig()  {
 	//	}
 	//}
 }
+=======
+
+>>>>>>> 2913d28f904ddeeee7dfaffb0bf4a96173829819
