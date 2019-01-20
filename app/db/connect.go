@@ -5,7 +5,7 @@ import (
 	"log"
 	"encoding/json"
 	_ "github.com/go-sql-driver/mysql"
-	"go-imgs-down/app/config"
+	"go-imgs-down/app/base/helper"
 )
 
 var db *sql.DB
@@ -23,7 +23,7 @@ func Connect() *sql.DB {
 		Port string `json:"port"`
 	}
 	var dbconfig database
-	str := config.GetConfig()
+	str := helper.GetConfig()
 
 	errs := json.Unmarshal([]byte(str), &dbconfig)
 	if errs != nil {
