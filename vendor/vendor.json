@@ -1,0 +1,85 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "BGm8lKZmvJbf/YOJLeL1rw2WVjA=",
+			"path": "golang.org/x/crypto/ssh/terminal",
+			"revision": "e3636079e1a4c1f337f212cc5cd2aca108f6c900",
+			"revisionTime": "2018-09-26T22:24:25Z"
+		},
+		{
+			"checksumSHA1": "UrM9Sbp5q0sBFxqb5iMhqiPpXII=",
+			"path": "golang.org/x/net/html",
+			"revision": "ed066c81e75eba56dd9bd2139ade88125b855585",
+			"revisionTime": "2018-12-13T11:07:11Z"
+		},
+		{
+			"checksumSHA1": "XtSbs1gpyaEsIqf6VRhJsgOQe5U=",
+			"path": "golang.org/x/net/html/atom",
+			"revision": "ed066c81e75eba56dd9bd2139ade88125b855585",
+			"revisionTime": "2018-12-13T11:07:11Z"
+		},
+		{
+			"checksumSHA1": "PWQLrPh5tzplI/R8onRIGme8wGk=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "4497e2df6f9e69048a54498c7affbbec3294ad47",
+			"revisionTime": "2018-10-05T07:04:52Z"
+		},
+		{
+			"checksumSHA1": "Y7nctMxT58lRM78VtElPerhcnEs=",
+			"path": "golang.org/x/sys/windows",
+			"revision": "4497e2df6f9e69048a54498c7affbbec3294ad47",
+			"revisionTime": "2018-10-05T07:04:52Z"
+		},
+		{
+			"checksumSHA1": "P9OIhD26uWlIST/me4TYnvseCoY=",
+			"path": "golang.org/x/sys/windows/registry",
+			"revision": "4497e2df6f9e69048a54498c7affbbec3294ad47",
+			"revisionTime": "2018-10-05T07:04:52Z"
+		},
+		{
+			"checksumSHA1": "1TSbUa/il1mt6ZWJJymLmCxADbU=",
+			"path": "golang.org/x/sys/windows/svc",
+			"revision": "4497e2df6f9e69048a54498c7affbbec3294ad47",
+			"revisionTime": "2018-10-05T07:04:52Z"
+		},
+		{
+			"checksumSHA1": "uVlUSSKplihZG7N+QJ6fzDZ4Kh8=",
+			"path": "golang.org/x/sys/windows/svc/eventlog",
+			"revision": "4497e2df6f9e69048a54498c7affbbec3294ad47",
+			"revisionTime": "2018-10-05T07:04:52Z"
+		},
+		{
+			"checksumSHA1": "2r2jKuLuFOs4tqF8BXnsFdLHQAA=",
+			"path": "golang.org/x/sys/windows/svc/mgr",
+			"revision": "4497e2df6f9e69048a54498c7affbbec3294ad47",
+			"revisionTime": "2018-10-05T07:04:52Z"
+		},
+		{
+			"checksumSHA1": "AnXFEvmaJ7w2Q7hWPcLUmCbPgq0=",
+			"path": "golang.org/x/tools/go/buildutil",
+			"revision": "87723262609ca8fd55d449c027454c29cadefd68",
+			"revisionTime": "2018-04-26T18:12:02Z"
+		},
+		{
+			"checksumSHA1": "TANcqFFFf5Rcxt+bVsxsJUbgQpI=",
+			"path": "golang.org/x/tools/go/gcexportdata",
+			"revision": "87723262609ca8fd55d449c027454c29cadefd68",
+			"revisionTime": "2018-04-26T18:12:02Z"
+		},
+		{
+			"checksumSHA1": "4fHLwo8NkpTrPdtOezgBMFqnWz4=",
+			"path": "golang.org/x/tools/go/internal/gcimporter",
+			"revision": "87723262609ca8fd55d449c027454c29cadefd68",
+			"revisionTime": "2018-04-26T18:12:02Z"
+		},
+		{
+			"checksumSHA1": "QKvPv3TJ+ZnOLkUeUkT8Wm8eCV0=",
+			"path": "golang.org/x/tools/go/types/typeutil",
+			"revision": "87723262609ca8fd55d449c027454c29cadefd68",
+			"revisionTime": "2018-04-26T18:12:02Z"
+		}
+	],
+	"rootPath": "go-imgs-down"
+}
